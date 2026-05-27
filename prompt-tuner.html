@@ -1,7 +1,122 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Practice tuner</title><link rel="stylesheet" href="style.css"></head><body><div class="wrap"><header><div class="eyebrow">Editor · interview answer tuner</div><h1>Answer practice tuner</h1><p class="sub">Edit your reusable answer structure on the left. The preview fills it for three likely recruiter prompts.</p></header><div class="toolbar"><button id="copyBtn" class="btn-primary">Copy template</button><button id="resetBtn" class="btn-ghost">Reset</button><div class="spacer"></div><div class="label" style="margin:0">slots use {{double_brace}}</div></div><div class="cols"><section class="panel"><div class="ed-toolbar"><span class="ed-label">Template</span><div class="spacer"></div><span class="chip" id="count">0 chars</span></div><div id="editor" class="editor" contenteditable="true" spellcheck="false"></div><div class="ed-toolbar"><span class="ed-label">Available slots</span><span class="chip">{{prompt}}</span><span class="chip">{{clinical}}</span><span class="chip">{{technical}}</span><span class="chip">{{safety}}</span><span class="chip">{{close}}</span></div></section><section class="panel preview-panel"><div class="preview-head">Live preview · 3 likely prompts</div><div id="samples"></div></section></div><footer><a href="index.html">Back to index</a></footer></div><script>const DEFAULT=`For {{prompt}}, I want to land three points:
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice tuner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Editor · interview answer tuner</div>
+    <h1>Answer practice tuner</h1>
+    <p class="sub">Edit your reusable answer structure on the left. The preview fills it for three likely recruiter prompts.</p>
+  </header>
+
+  <div class="toolbar">
+    <button id="copyBtn" class="btn-primary">Copy template</button>
+    <button id="resetBtn" class="btn-ghost">Reset</button>
+    <div class="spacer"></div>
+    <div class="label" style="margin:0">slots use {{double_brace}}</div>
+  </div>
+
+  <div class="cols">
+    <section class="panel">
+      <div class="ed-toolbar">
+        <span class="ed-label">Template</span>
+        <div class="spacer"></div>
+        <span class="chip" id="count">0 chars</span>
+      </div>
+      <div id="editor" class="editor" contenteditable="true" spellcheck="false"></div>
+      <div class="ed-toolbar">
+        <span class="ed-label">Available slots</span>
+        <span class="chip">{{prompt}}</span>
+        <span class="chip">{{clinical}}</span>
+        <span class="chip">{{technical}}</span>
+        <span class="chip">{{safety}}</span>
+        <span class="chip">{{close}}</span>
+      </div>
+    </section>
+    <section class="panel preview-panel">
+      <div class="preview-head">Live preview · 3 likely prompts</div>
+      <div id="samples"></div>
+    </section>
+  </div>
+
+  <footer><a href="index.html">← Back to index</a></footer>
+</div>
+
+<script>
+const DEFAULT = `For {{prompt}}, I want to land three points:
 
 1. Clinically, {{clinical}}
 2. Technically, {{technical}}
 3. From a safety/product perspective, {{safety}}
 
-{{close}}`;const rows=[{name:'Tell me about yourself',prompt:'a broad intro',clinical:'I am an ED clinician at Barts working in resus, majors and ambulatory care',technical:'I have shipped Aide, a RAG guideline retrieval platform, plus LLM workflow features at Peerr/Aiigent',safety:'I think about citations, auditability, feedback loops and clinician review from the start',close:'That is why Heidi feels like a strong fit.'},{name:'Why Heidi?',prompt:'why Heidi',clinical:'I see every shift how documentation burden pulls attention away from patients',technical:'Heidi is solving this through real product engineering across scribing, evidence, comms and audio capture',safety:'the interesting challenge is earning trust in real clinical settings, not producing a flashy demo',close:'I want to help build that kind of safe, workflow-native AI.'},{name:'Tell me about Aide',prompt:'Aide',clinical:'the use case came from ED staff needing quick access to local pathways and practical information',technical:'I built ingestion, retrieval, citations, confidence, analytics and feedback capture',safety:'I deliberately bounded it to information retrieval, not diagnosis, triage or prescribing',close:'That reflects how I think clinical AI should be deployed.'}];const ed=document.getElementById('editor'),samples=document.getElementById('samples'),count=document.getElementById('count');function esc(s){return s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}function fill(t,r){return t.replace(/{{(.*?)}}/g,(m,k)=>`<span class="filled">${esc(r[k.trim()]||m)}</span>`)}function render(){let t=ed.innerText;count.textContent=t.length+' chars';samples.innerHTML=rows.map(r=>`<div class="sample"><div class="sample-head"><span class="cust">${r.name}</span><div class="spacer"></div><span class="chip olive">preview</span></div><div class="rendered">${fill(t,r)}</div></div>`).join('')}ed.innerText=DEFAULT;ed.addEventListener('input',render);resetBtn.onclick=()=>{ed.innerText=DEFAULT;render()};copyBtn.onclick=()=>navigator.clipboard&&navigator.clipboard.writeText(ed.innerText);render();</script></body></html>
+{{close}}`;
+
+const rows = [
+  {
+    name: 'Tell me about yourself',
+    prompt: 'a broad intro',
+    clinical: 'I am an ED clinician at Barts working in resus, majors and ambulatory care',
+    technical: 'I have shipped Aide, a RAG guideline retrieval platform, plus LLM workflow features at Peerr/Aiigent',
+    safety: 'I think about citations, auditability, feedback loops and clinician review from the start',
+    close: 'That is why Heidi feels like a strong fit.'
+  },
+  {
+    name: 'Why Heidi?',
+    prompt: 'why Heidi',
+    clinical: 'I see every shift how documentation burden pulls attention away from patients',
+    technical: 'Heidi is solving this through real product engineering across scribing, evidence, comms and audio capture',
+    safety: 'the interesting challenge is earning trust in real clinical settings, not producing a flashy demo',
+    close: 'I want to help build that kind of safe, workflow-native AI.'
+  },
+  {
+    name: 'Tell me about Aide',
+    prompt: 'Aide',
+    clinical: 'the use case came from ED staff needing quick access to local pathways and practical information',
+    technical: 'I built ingestion, retrieval, citations, confidence, analytics and feedback capture',
+    safety: 'I deliberately bounded it to information retrieval, not diagnosis, triage or prescribing',
+    close: 'That reflects how I think clinical AI should be deployed.'
+  }
+];
+
+const ed = document.getElementById('editor'),
+      samples = document.getElementById('samples'),
+      count = document.getElementById('count');
+
+function esc(s) {
+  return s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+}
+
+function fill(t, r) {
+  return t.replace(/{{(.*?)}}/g, (m, k) => `<span class="filled">${esc(r[k.trim()] || m)}</span>`);
+}
+
+function render() {
+  let t = ed.innerText;
+  count.textContent = t.length + ' chars';
+  samples.innerHTML = rows.map(r => `
+    <div class="sample">
+      <div class="sample-head">
+        <span class="cust">${r.name}</span>
+        <div class="spacer"></div>
+        <span class="chip olive">preview</span>
+      </div>
+      <div class="rendered">${fill(t, r)}</div>
+    </div>
+  `).join('');
+}
+
+ed.innerText = DEFAULT;
+ed.addEventListener('input', render);
+
+resetBtn.onclick = () => { ed.innerText = DEFAULT; render(); };
+copyBtn.onclick = () => navigator.clipboard && navigator.clipboard.writeText(ed.innerText);
+
+render();
+</script>
+</body>
+</html>

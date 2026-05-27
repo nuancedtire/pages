@@ -1,1 +1,119 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Interview flow</title><link rel="stylesheet" href="style.css"></head><body><div class="sheet"><header><div class="eyebrow">Illustrations & diagrams · flowchart</div><h1>30-minute Heidi talent screen</h1><p class="lead">Click any node to see your goal, likely question and best answer angle.</p></header><div class="layout"><div><div class="canvas"><svg class="flow" viewBox="0 0 620 720"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#87867F"/></marker><marker id="arrow-olive" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#788C5D"/></marker><marker id="arrow-rust" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B04A3F"/></marker></defs><path class="edge" d="M310,56 L310,92"/><path class="edge" d="M310,140 L310,176"/><path class="edge" d="M310,224 L310,260"/><path class="edge" d="M310,324 L310,368"/><path class="edge yes" d="M310,416 L310,452"/><path class="edge" d="M310,500 L310,536"/><path class="edge" d="M310,584 L310,620"/><g class="node term active" data-k="open"><rect x="230" y="12" width="160" height="44"/><text x="310" y="38" text-anchor="middle">Open warmly</text></g><g class="node" data-k="intro"><rect x="210" y="92" width="200" height="48"/><text x="310" y="112" text-anchor="middle">Tell me about yourself</text><text class="sub" x="310" y="128" text-anchor="middle">60 seconds</text></g><g class="node" data-k="why"><rect x="210" y="176" width="200" height="48"/><text x="310" y="196" text-anchor="middle">Why Heidi?</text><text class="sub" x="310" y="212" text-anchor="middle">mission + deployment</text></g><g class="node gate" data-k="technical"><path d="M310,260 L352,292 L310,324 L268,292 Z"/><text x="310" y="296" text-anchor="middle">technical?</text></g><g class="node" data-k="aide"><rect x="210" y="368" width="200" height="48"/><text x="310" y="388" text-anchor="middle">Aide / projects</text><text class="sub" x="310" y="404" text-anchor="middle">bounded RAG</text></g><g class="node" data-k="practical"><rect x="210" y="452" width="200" height="48"/><text x="310" y="472" text-anchor="middle">Practicalities</text><text class="sub" x="310" y="488" text-anchor="middle">hybrid / salary / notice</text></g><g class="node" data-k="questions"><rect x="210" y="536" width="200" height="48"/><text x="310" y="556" text-anchor="middle">Your questions</text><text class="sub" x="310" y="572" text-anchor="middle">show judgement</text></g><g class="node ok term" data-k="close"><rect x="230" y="620" width="160" height="44"/><text x="310" y="647" text-anchor="middle">Close strongly</text></g></svg></div></div><aside><div class="hint">Click a node</div><h3 id="sideTitle">Open warmly</h3><div class="meta" id="sideMeta">first 2 minutes</div><p id="sideBody">Be warm, concise and high-energy. Your goal is to sound grounded, not over-rehearsed.</p><pre id="sideCode">Signal: rare fit</pre></aside></div><footer><a href="index.html">Back to index</a></footer></div><script>const data={open:['Open warmly','first 2 minutes','Be warm, concise and high-energy. Your goal is to sound grounded, not over-rehearsed.','Signal: rare fit'],intro:['Tell me about yourself','60 seconds','Hit: ED clinician + shipped clinical AI + wants production workflow impact.','Do not ramble through your whole CV.'],why:['Why Heidi?','motivation','Tie Heidi to documentation burden, real-world deployment and clinical trust.','Phrase: not just a demo; deployed into messy workflows.'],technical:['Technical depth?','if probed','Own full-stack/RAG/LLM workflow strength; be honest on ASR but show why ED noise makes it important.','Bridge model ↔ product ↔ clinician feedback.'],aide:['Aide / projects','portfolio','Describe bounded RAG: citations, feedback, confidence, audit trail; not diagnosis/triage/treatment.','Safety is a feature.'],practical:['Practicalities','recruiter screen','Prepare right to work, notice, hybrid London, salary. Avoid low anchoring.','Ask about banding first.'],questions:['Your questions','last 5 min','Ask about success, role shape, feedback loops and safety cases.','Best: where could I add most value?'],close:['Close strongly','final minute','Restate alignment: clinical experience directly shaping what gets engineered and shipped.','Leave a clear yes.']};document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{document.querySelectorAll('.node').forEach(x=>x.classList.remove('active'));n.classList.add('active');let v=data[n.dataset.k];sideTitle.textContent=v[0];sideMeta.textContent=v[1];sideBody.textContent=v[2];sideCode.textContent=v[3];}));</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interview flow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <div class="eyebrow">Illustrations &amp; diagrams · flowchart</div>
+    <h1>30-minute Heidi talent screen</h1>
+    <p class="lead">Click any node to see your goal, likely question and best answer angle.</p>
+  </header>
+
+  <div class="layout">
+    <div>
+      <div class="canvas">
+        <svg class="flow" viewBox="0 0 620 720">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#87867F"/>
+            </marker>
+            <marker id="arrow-olive" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#788C5D"/>
+            </marker>
+            <marker id="arrow-rust" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#B04A3F"/>
+            </marker>
+          </defs>
+
+          <path class="edge" d="M310,56 L310,92"/>
+          <path class="edge" d="M310,140 L310,176"/>
+          <path class="edge" d="M310,224 L310,260"/>
+          <path class="edge" d="M310,324 L310,368"/>
+          <path class="edge yes" d="M310,416 L310,452"/>
+          <path class="edge" d="M310,500 L310,536"/>
+          <path class="edge" d="M310,584 L310,620"/>
+
+          <g class="node term active" data-k="open">
+            <rect x="230" y="12" width="160" height="44"/>
+            <text x="310" y="38" text-anchor="middle">Open warmly</text>
+          </g>
+          <g class="node" data-k="intro">
+            <rect x="210" y="92" width="200" height="48"/>
+            <text x="310" y="112" text-anchor="middle">Tell me about yourself</text>
+            <text class="sub" x="310" y="128" text-anchor="middle">60 seconds</text>
+          </g>
+          <g class="node" data-k="why">
+            <rect x="210" y="176" width="200" height="48"/>
+            <text x="310" y="196" text-anchor="middle">Why Heidi?</text>
+            <text class="sub" x="310" y="212" text-anchor="middle">mission + deployment</text>
+          </g>
+          <g class="node gate" data-k="technical">
+            <path d="M310,260 L352,292 L310,324 L268,292 Z"/>
+            <text x="310" y="296" text-anchor="middle">technical?</text>
+          </g>
+          <g class="node" data-k="aide">
+            <rect x="210" y="368" width="200" height="48"/>
+            <text x="310" y="388" text-anchor="middle">Aide / projects</text>
+            <text class="sub" x="310" y="404" text-anchor="middle">bounded RAG</text>
+          </g>
+          <g class="node" data-k="practical">
+            <rect x="210" y="452" width="200" height="48"/>
+            <text x="310" y="472" text-anchor="middle">Practicalities</text>
+            <text class="sub" x="310" y="488" text-anchor="middle">hybrid / salary / notice</text>
+          </g>
+          <g class="node" data-k="questions">
+            <rect x="210" y="536" width="200" height="48"/>
+            <text x="310" y="556" text-anchor="middle">Your questions</text>
+            <text class="sub" x="310" y="572" text-anchor="middle">show judgement</text>
+          </g>
+          <g class="node ok term" data-k="close">
+            <rect x="230" y="620" width="160" height="44"/>
+            <text x="310" y="647" text-anchor="middle">Close strongly</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <aside>
+      <div class="hint">Click a node</div>
+      <h3 id="sideTitle">Open warmly</h3>
+      <div class="meta" id="sideMeta">first 2 minutes</div>
+      <p id="sideBody">Be warm, concise and high-energy. Your goal is to sound grounded, not over-rehearsed.</p>
+      <pre id="sideCode">Signal: rare fit</pre>
+    </aside>
+  </div>
+
+  <footer><a href="index.html">← Back to index</a></footer>
+</div>
+
+<script>
+const data = {
+  open:     ['Open warmly',      'first 2 minutes', 'Be warm, concise and high-energy. Your goal is to sound grounded, not over-rehearsed.', 'Signal: rare fit'],
+  intro:    ['Tell me about yourself', '60 seconds', 'Hit: ED clinician + shipped clinical AI + wants production workflow impact.', 'Do not ramble through your whole CV.'],
+  why:      ['Why Heidi?',       'motivation', 'Tie Heidi to documentation burden, real-world deployment and clinical trust.', 'Phrase: not just a demo; deployed into messy workflows.'],
+  technical:['Technical depth?', 'if probed', 'Own full-stack/RAG/LLM workflow strength; be honest on ASR but show why ED noise makes it important.', 'Bridge model ↔ product ↔ clinician feedback.'],
+  aide:     ['Aide / projects',  'portfolio', 'Describe bounded RAG: citations, feedback, confidence, audit trail; not diagnosis/triage/treatment.', 'Safety is a feature.'],
+  practical:['Practicalities',   'recruiter screen', 'Prepare right to work, notice, hybrid London, salary. Avoid low anchoring.', 'Ask about banding first.'],
+  questions:['Your questions',  'last 5 min', 'Ask about success, role shape, feedback loops and safety cases.', 'Best: where could I add most value?'],
+  close:    ['Close strongly',   'final minute', 'Restate alignment: clinical experience directly shaping what gets engineered and shipped.', 'Leave a clear yes.']
+};
+
+document.querySelectorAll('.node').forEach(n => {
+  n.addEventListener('click', () => {
+    document.querySelectorAll('.node').forEach(x => x.classList.remove('active'));
+    n.classList.add('active');
+    let v = data[n.dataset.k];
+    sideTitle.textContent = v[0];
+    sideMeta.textContent  = v[1];
+    sideBody.textContent  = v[2];
+    sideCode.textContent  = v[3];
+  });
+});
+</script>
+</body>
+</html>

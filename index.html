@@ -1,1 +1,561 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Heidi interview prep</title><link rel="stylesheet" href="style.css"></head><body><div class="page"><nav><div class="label">On this page</div><a href="index.html">Index</a><a href="company-research.html">Company research</a><a href="role-fit.html">Role fit</a><a href="answers.html">Answer bank</a><a href="questions.html">Questions</a><a href="flashcards.html">Flashcards</a><a href="workflow.html">Interview flow</a><a href="prompt-tuner.html">Practice tuner</a><a href="checklist.html">Checklist</a><div class="files"><div class="label">Files</div><code>cv.pdf</code><code>Heidi role</code><code>company pages</code><code>repo style</code></div></nav><main><header><div class="eyebrow">Heidi / interview prep / talent screen</div><h1>Software Engineer — Clinical Background</h1><p class="lead">A repo-style preparation pack for Dr Fazeen Nasser: concise research, rehearsable scripts, role-fit mapping and interactive practice tools.</p></header><div class="tldr" id="tldr"><b>TL;DR</b> — Your strongest frame is not “doctor interested in AI”; it is <em>frontline NHS emergency clinician who can ship production clinical AI and understands safety, governance and workflow adoption.</em></div><section class="grid three"><div class="card"><div class="metric-label">Theme</div><h3>Clinical reality</h3><p>Whipps Cross ED, Barts Health; resus/majors/ambulatory, senior trust-grade decisions and junior supervision.</p></div><div class="card"><div class="metric-label">Theme</div><h3>Builder credibility</h3><p>Aide, Peerr/Aiigent, NeurallyMed and Marrow prove you can translate pain points into products.</p></div><div class="card"><div class="metric-label">Theme</div><h3>Safety maturity</h3><p>Bounded use, citations, audit trails, feedback loops, GDPR/SOC2 awareness and clinician-in-the-loop design.</p></div></section><h2>How to use this</h2><details open><summary>15-minute route <span class="where">before call</span></summary><div class="body"><p>Read the TL;DR on <a href="company-research.html">company research</a>, rehearse the first script in <a href="answers.html">answer bank</a>, then run through <a href="flashcards.html">flashcards</a>.</p></div></details><details><summary>Deep route <span class="where">45–60 min</span></summary><div class="body"><p>Read company research, role fit, answers and workflow. End with the practice tuner and checklist.</p></div></details><footer>Standalone HTML, no dependencies. Visual language intentionally mirrors ThariqS/html-effectiveness: ivory canvas, serif headings, clay accents, mono labels, bordered panels, expandable sections and small interactive utilities.</footer></main></div></body></html>
+<!--
+  Copyright 2026 Anthropic PBC · SPDX-License-Identifier: Apache-2.0
+  Adapted from ThariqS/html-effectiveness
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interview Prep — HTML Gallery</title>
+<style>
+  :root {
+    --ivory:  #FAF9F5;
+    --paper:  #FFFFFF;
+    --slate:  #141413;
+    --clay:   #D97757;
+    --clay-d: #B85C3E;
+    --oat:    #E3DACC;
+    --olive:  #788C5D;
+    --g100:   #F0EEE6;
+    --g200:   #E6E3DA;
+    --g300:   #D1CFC5;
+    --g500:   #87867F;
+    --g700:   #3D3D3A;
+    --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+    --sans:  system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--slate);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px 140px; }
+
+  /* ── masthead ── */
+  header.masthead {
+    padding: 80px 0 56px;
+    border-bottom: 1.5px solid var(--g300);
+    margin-bottom: 12px;
+    position: relative;
+    overflow: visible;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--g500);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px; height: 1.5px;
+    background: var(--clay);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(38px, 5.4vw, 62px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 8px;
+    max-width: 17ch;
+  }
+  h1 em { font-style: italic; color: var(--clay); }
+  .intro {
+    font-size: 16.5px;
+    color: var(--g700);
+    margin: 22px 0 0;
+    max-width: 620px;
+  }
+  .intro a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
+  .intro a:hover { text-decoration-color: var(--clay); }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: end;
+  }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .hero-fig {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: end;
+  }
+  @media (max-width: 880px) { .hero-fig { max-width: 400px; margin-top: 28px; } }
+  .hero-fig .pane {
+    border-radius: 10px;
+    border: 1.5px solid var(--g300);
+    background: var(--paper);
+    padding: 14px;
+    aspect-ratio: 4/5;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    position: relative;
+  }
+  .hero-fig .pane.md {
+    background: var(--g100);
+    transform: rotate(-2.5deg) translateY(6px);
+  }
+  .hero-fig .pane.html {
+    transform: rotate(1.5deg);
+    border-color: var(--slate);
+    box-shadow: 0 12px 32px rgba(20,20,19,.10);
+  }
+  .hero-fig .tag {
+    position: absolute;
+    top: -10px; left: 12px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ivory);
+    padding: 2px 7px;
+    border: 1.5px solid var(--g300);
+    border-radius: 6px;
+    color: var(--g500);
+  }
+  .hero-fig .pane.html .tag { border-color: var(--slate); color: var(--slate); }
+  .hero-fig .l { height: 6px; border-radius: 3px; background: var(--g300); }
+  .hero-fig .l.w90 { width: 90%; } .hero-fig .l.w75 { width: 75%; }
+  .hero-fig .l.w60 { width: 60%; } .hero-fig .l.w82 { width: 82%; }
+  .hero-fig .l.w70 { width: 70%; } .hero-fig .l.w50 { width: 50%; }
+  .hero-fig .pane.html .l { background: var(--g200); }
+  .hero-fig .pane.html .blk {
+    border-radius: 5px;
+    flex: 1;
+    background: linear-gradient(135deg, var(--oat), #ECE1CF);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-fig .pane.html .blk::after {
+    content: "";
+    position: absolute;
+    left: 18%; right: 18%; top: 28%;
+    height: 40%;
+    border: 2px solid var(--clay);
+    border-radius: 50%;
+    opacity: .7;
+  }
+  .hero-fig .pane.html .row {
+    display: flex; gap: 6px; align-items: flex-end;
+  }
+  .hero-fig .pane.html .bar { flex: 1; border-radius: 3px 3px 0 0; }
+  .hero-fig .pane.html .bar.b1 { height: 14px; background: var(--olive); }
+  .hero-fig .pane.html .bar.b2 { height: 26px; background: var(--clay); }
+  .hero-fig .pane.html .bar.b3 { height: 18px; background: var(--oat); }
+  .hero-fig .pane.html .bar.b4 { height: 30px; background: var(--slate); }
+
+  /* ── toc pills ── */
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 26px 0 0;
+  }
+  nav.toc a {
+    font-size: 12.5px;
+    padding: 7px 14px;
+    border: 1.5px solid var(--g300);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--g700);
+    background: var(--paper);
+    transition: border-color 120ms, color 120ms, background 120ms;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  nav.toc a .n {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--g500);
+  }
+  nav.toc a:hover { border-color: var(--slate); color: var(--slate); }
+  nav.toc a:hover .n { color: var(--clay); }
+
+  /* ── section ── */
+  section {
+    margin-top: 72px;
+    scroll-margin-top: 28px;
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .sec-head .idx {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--clay);
+    font-weight: 600;
+    width: 34px;
+    flex-shrink: 0;
+  }
+  .sec-head h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 27px;
+    margin: 0;
+    letter-spacing: -0.012em;
+  }
+  .sec-head .count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--g500);
+    background: var(--g100);
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .sec-intro {
+    font-size: 14.5px;
+    color: var(--g700);
+    max-width: 700px;
+    margin: 0 0 24px 50px;
+  }
+  @media (max-width: 640px) { .sec-intro { margin-left: 0; } }
+
+  /* ── cards ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(316px, 1fr));
+    gap: 20px;
+    margin-left: 50px;
+  }
+  @media (max-width: 640px) { .grid { margin-left: 0; } }
+
+  a.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    border: 1.5px solid var(--g300);
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+    overflow: hidden;
+  }
+  a.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(20, 20, 19, 0.10);
+    border-color: var(--slate);
+  }
+
+  .thumb {
+    height: 132px;
+    background: var(--g100);
+    border-bottom: 1.5px solid var(--g200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 150ms ease;
+  }
+  a.card:hover .thumb { background: var(--oat); }
+  .thumb svg {
+    width: 100%; height: 100%;
+    overflow: visible;
+  }
+  .thumb svg .st { stroke: var(--g500); fill: none; stroke-width: 2.5; }
+  .thumb svg .fl { fill: var(--g300); }
+  .thumb svg .cl { fill: var(--clay); }
+  .thumb svg .ol { fill: var(--olive); }
+  .thumb svg .oa { fill: var(--oat); stroke: var(--g500); stroke-width: 2.5; }
+  .thumb svg .sl { fill: var(--slate); }
+  .thumb svg .wh { fill: var(--paper); stroke: var(--g500); stroke-width: 2.5; }
+  .thumb svg .ln { stroke: var(--g500); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+  .thumb svg .lc { stroke: var(--clay); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+  .thumb svg .da { stroke-dasharray: 4 4; }
+  a.card:hover .thumb svg .fl { fill: var(--g500); }
+  a.card:hover .thumb svg .oa { fill: var(--paper); }
+
+  .body { padding: 18px 20px 16px; display: flex; flex-direction: column; flex: 1; }
+  .title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.22;
+    color: var(--slate);
+    margin-bottom: 7px;
+    letter-spacing: -0.008em;
+  }
+  .desc {
+    font-size: 13.5px;
+    color: var(--g700);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+  .file {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--g500);
+    border-top: 1px solid var(--g100);
+    padding-top: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .file .arrow { transition: transform 150ms ease; color: var(--g300); }
+  a.card:hover .file { color: var(--clay); }
+  a.card:hover .file .arrow { transform: translateX(3px); color: var(--clay); }
+
+  /* ── footer ── */
+  footer {
+    margin-top: 100px;
+    border-top: 1.5px solid var(--g300);
+    padding-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--g500);
+  }
+  footer .k {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--g700);
+    font-size: 15px;
+  }
+  footer a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Interview preparation pack</div>
+        <h1>Heidi talent screen — <em>HTML gallery</em></h1>
+        <p class="intro">
+          Nine self-contained <code>.html</code> files: research, scripts, flashcards,
+          interactive tools and a final checklist. Each page is standalone — no build step,
+          no dependencies. Open any of them directly in a browser.
+        </p>
+        <nav class="toc">
+          <a href="#research">Research <span class="n">2</span></a>
+          <a href="#scripts">Scripts <span class="n">2</span></a>
+          <a href="#practice">Practice <span class="n">3</span></a>
+          <a href="#tools">Tools <span class="n">2</span></a>
+        </nav>
+      </div>
+      <div class="hero-fig" aria-hidden="true">
+        <div class="pane md">
+          <span class="tag">.md</span>
+          <span class="l w90"></span><span class="l w75"></span><span class="l w82"></span>
+          <span class="l w60"></span><span class="l w90"></span><span class="l w70"></span>
+          <span class="l w82"></span><span class="l w50"></span><span class="l w75"></span>
+          <span class="l w90"></span><span class="l w60"></span>
+        </div>
+        <div class="pane html">
+          <span class="tag">.html</span>
+          <span class="l w60"></span>
+          <span class="blk"></span>
+          <span class="row"><span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span><span class="bar b4"></span></span>
+          <span class="l w75"></span><span class="l w50"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== Research ============================== -->
+  <section id="research">
+    <div class="sec-head"><span class="idx">01</span><h2>Research &amp; Learning</h2><span class="count">2 pages</span></div>
+    <p class="sec-intro">
+      Understand the company, the role and your own fit before you walk into the call.
+      Collapsible sections, comparison tables and evidence maps — so you can find what you
+      need in thirty seconds.
+    </p>
+    <div class="grid">
+      <a class="card" href="company-research.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <rect class="wh" x="8" y="8" width="104" height="20" rx="4" opacity=".35"/>
+          <rect class="fl" x="14" y="15" width="60" height="6" rx="3"/>
+          <rect class="wh" x="8" y="34" width="104" height="14" rx="4"/>
+          <rect class="wh" x="8" y="52" width="104" height="14" rx="4"/>
+          <path class="ln" d="M16 39 l4 4 l-4 4"/><rect class="fl" x="28" y="38" width="46" height="5" rx="2.5"/>
+          <path class="ln" d="M16 57 l4 4 l-4 4"/><rect class="fl" x="28" y="56" width="38" height="5" rx="2.5"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Company research</div>
+          <div class="desc">Product map, business model, competitors and integration strategy — the evidence base for "Why Heidi?"</div>
+          <div class="file"><span>company-research.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="card" href="role-fit.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <circle class="st" cx="42" cy="40" r="26"/>
+          <circle class="cl" cx="42" cy="14" r="5"/><circle class="ol" cx="68" cy="40" r="5"/>
+          <circle class="fl" cx="42" cy="66" r="5"/><circle class="fl" cx="16" cy="40" r="5"/>
+          <rect class="fl" x="82" y="20" width="30" height="5" rx="2.5"/><rect class="fl" x="82" y="32" width="24" height="5" rx="2.5"/>
+          <rect class="fl" x="82" y="44" width="28" height="5" rx="2.5"/><rect class="fl" x="82" y="56" width="20" height="5" rx="2.5"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Role fit map</div>
+          <div class="desc">Where your CV maps to the role requirements, with concrete examples and framing advice for every claim.</div>
+          <div class="file"><span>role-fit.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================== Scripts ============================== -->
+  <section id="scripts">
+    <div class="sec-head"><span class="idx">02</span><h2>Interview Scripts</h2><span class="count">2 pages</span></div>
+    <p class="sec-intro">
+      Rehearsable answers and questions to ask. These are beats, not scripts — designed to
+      sound natural while hitting the points that matter.
+    </p>
+    <div class="grid">
+      <a class="card" href="answers.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <rect class="wh" x="6" y="8" width="72" height="64" rx="5"/>
+          <line class="ln" x1="14" y1="20" x2="66" y2="20"/>
+          <rect class="ol" x="14" y="28" width="56" height="7" rx="2" opacity=".5"/>
+          <rect class="cl" x="14" y="38" width="48" height="7" rx="2" opacity=".5"/>
+          <line class="ln" x1="14" y1="52" x2="58" y2="52"/><line class="ln" x1="14" y1="62" x2="50" y2="62"/>
+          <rect class="oa" x="86" y="22" width="28" height="20" rx="4"/>
+          <line class="lc da" x1="78" y1="32" x2="86" y2="32"/>
+          <circle class="cl" cx="100" cy="58" r="7"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Answer bank</div>
+          <div class="desc">Rehearsable answers for the five questions you're almost guaranteed to get, with framing and tone notes.</div>
+          <div class="file"><span>answers.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="card" href="questions.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <rect class="oa" x="6" y="8" width="48" height="28" rx="4"/>
+          <rect class="wh" x="6" y="44" width="48" height="28" rx="4"/>
+          <line class="ln" x1="14" y1="20" x2="46" y2="20"/><line class="ln" x1="14" y1="28" x2="38" y2="28"/>
+          <line class="lc" x1="14" y1="56" x2="46" y2="56"/><line class="ln" x1="14" y1="64" x2="38" y2="64"/>
+          <rect class="wh" x="64" y="8" width="50" height="64" rx="5"/>
+          <circle class="cl" cx="74" cy="22" r="5"/><rect class="fl" x="84" y="19" width="24" height="5" rx="2"/>
+          <circle class="ol" cx="74" cy="42" r="5"/><rect class="fl" x="84" y="39" width="22" height="5" rx="2"/>
+          <circle class="fl" cx="74" cy="62" r="5"/><rect class="fl" x="84" y="59" width="26" height="5" rx="2"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Questions to ask</div>
+          <div class="desc">Twelve questions that signal seniority — scoped around success, culture, safety, team and growth.</div>
+          <div class="file"><span>questions.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================== Practice ============================== -->
+  <section id="practice">
+    <div class="sec-head"><span class="idx">03</span><h2>Practice Drills</h2><span class="count">3 pages</span></div>
+    <p class="sec-intro">
+      Active recall, flowchart navigation and a final checklist. These are the pages you
+      open in the last ten minutes before the call.
+    </p>
+    <div class="grid">
+      <a class="card" href="flashcards.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <rect class="cl" x="8" y="10" width="22" height="22" rx="4"/>
+          <rect class="ol" x="36" y="10" width="22" height="22" rx="4"/>
+          <rect class="oa" x="64" y="10" width="22" height="22" rx="4"/>
+          <rect class="sl" x="92" y="10" width="22" height="22" rx="4"/>
+          <rect class="fl" x="8" y="42" width="80" height="8" rx="2"/>
+          <rect class="fl" x="8" y="56" width="56" height="6" rx="2"/>
+          <rect class="fl" x="8" y="68" width="40" height="5" rx="2"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Flashcards</div>
+          <div class="desc">Click-to-reveal drills covering positioning, product knowledge, safety framing and recurring themes.</div>
+          <div class="file"><span>flashcards.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="card" href="workflow.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <rect class="wh" x="10" y="10" width="30" height="16" rx="4"/>
+          <path class="oa" d="M60 34 L80 46 L60 58 L40 46 Z"/>
+          <rect class="wh" x="82" y="10" width="30" height="16" rx="4"/>
+          <rect class="cl" x="82" y="56" width="30" height="16" rx="4"/>
+          <line class="ln" x1="25" y1="26" x2="25" y2="46"/><line class="ln" x1="25" y1="46" x2="40" y2="46"/>
+          <line class="lc" x1="80" y1="46" x2="97" y2="46"/><line class="lc" x1="97" y1="46" x2="97" y2="56"/>
+          <line class="ln" x1="60" y1="34" x2="60" y2="22"/><line class="ln" x1="60" y1="22" x2="82" y2="22"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Interview flowchart</div>
+          <div class="desc">An interactive 30-minute talent screen flowchart. Click any node to see your goal, likely question and best answer angle.</div>
+          <div class="file"><span>workflow.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="card" href="checklist.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <line class="ln" x1="18" y1="12" x2="18" y2="68"/>
+          <circle class="fl" cx="18" cy="16" r="5"/><circle class="cl" cx="18" cy="34" r="5"/>
+          <circle class="cl" cx="18" cy="50" r="5"/><circle class="ol" cx="18" cy="66" r="5"/>
+          <rect class="fl" x="32" y="13" width="40" height="5" rx="2.5"/>
+          <rect class="fl" x="32" y="31" width="56" height="5" rx="2.5"/>
+          <rect class="fl" x="32" y="47" width="48" height="5" rx="2.5"/>
+          <rect class="fl" x="32" y="63" width="36" height="5" rx="2.5"/>
+          <rect class="oa" x="94" y="26" width="20" height="30" rx="4"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Final checklist</div>
+          <div class="desc">A practical final sweep: rehearsed intro, Aide explanation, four questions for Mark, and a ready closing statement.</div>
+          <div class="file"><span>checklist.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================== Tools ============================== -->
+  <section id="tools">
+    <div class="sec-head"><span class="idx">04</span><h2>Interactive Tools</h2><span class="count">2 pages</span></div>
+    <p class="sec-intro">
+      Small utilities that let you edit, tune and export. Built so you can iterate on your
+      answers in the browser and copy the result straight into your notes.
+    </p>
+    <div class="grid">
+      <a class="card" href="prompt-tuner.html">
+        <div class="thumb"><svg viewBox="0 0 120 80">
+          <rect class="wh" x="6" y="10" width="56" height="60" rx="4"/>
+          <rect class="fl" x="12" y="18" width="40" height="4" rx="2"/>
+          <rect class="cl" x="12" y="26" width="22" height="4" rx="2"/>
+          <rect class="fl" x="12" y="34" width="44" height="4" rx="2"/>
+          <rect class="ol" x="12" y="42" width="18" height="4" rx="2"/>
+          <rect class="fl" x="12" y="50" width="36" height="4" rx="2"/>
+          <rect class="oa" x="68" y="10" width="46" height="18" rx="4"/>
+          <rect class="oa" x="68" y="32" width="46" height="18" rx="4"/>
+          <rect class="oa" x="68" y="54" width="46" height="18" rx="4"/>
+        </svg></div>
+        <div class="body">
+          <div class="title">Answer practice tuner</div>
+          <div class="desc">Editable template on the left with variable slots highlighted; three sample prompts on the right re-render live as you type.</div>
+          <div class="file"><span>prompt-tuner.html</span><span class="arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="k">Everything on this page is itself a single <code>.html</code> file.</span>
+    <span>View the repo · <a href="https://github.com/nuancedtire/pages">github.com/nuancedtire/pages</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
