@@ -1,13 +1,24 @@
-# Heidi Interview Prep HTML Pack
+# Heidi Interview Prep — Repo Style
 
-Open `index.html` in a browser. No build step, no dependencies.
+Open `index.html` locally. No dependencies.
+
+This version intentionally mirrors the visual language of ThariqS/html-effectiveness:
+- ivory background
+- serif headings
+- mono labels
+- clay/oat/olive palette
+- left sticky navigation
+- bordered panels
+- details/summary expanders
+- standalone interactive HTML utilities
 
 Pages:
-- `company-research.html` — Heidi research summary
-- `role-fit.html` — mapping your CV to role needs
-- `answers.html` — rehearsable scripts
-- `questions.html` — questions for Mark
-- `flashcards.html` — click-to-reveal drills
-- `checklist.html` — pre-call checklist
-- `mini-slide-deck.html` — keyboard-driven mini recap
-- `sources.html` — source map
+- index.html
+- company-research.html
+- role-fit.html
+- answers.html
+- questions.html
+- flashcards.html
+- workflow.html
+- prompt-tuner.html
+- checklist.html
